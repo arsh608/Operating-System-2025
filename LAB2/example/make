@@ -1,0 +1,14 @@
+CC= gcc
+CFLAGS= -Wall -g
+
+hellomake: hellomake.o hellofunc.o
+	$(CC) $(CFLAGS) -o hellomake hellomake.o hellofunc.o
+
+hellomake.o: hellomake.c hellomake.h
+	$(CC) $(CFLAGS) -c hellomake.c
+hellofunc.o: hellofunc.c hellomake.h
+	$(CC) $(CFLAGS) -c hellomake.c
+clean:
+	rm -f *.o hellomake
+run:hellomake
+	./hellomake
